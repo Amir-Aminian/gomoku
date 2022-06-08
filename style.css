@@ -1,0 +1,34 @@
+div {
+    margin: auto;
+    margin-top: 50px;
+    width: 40%;
+    position: relative;
+}
+#gameboard td {
+    border: 1px solid black;
+    padding: 20px;
+}
+#gameboard {
+    width: 40%;
+    margin: auto;
+    border-spacing: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url(images/background.jpg);
+}
+#chips td {
+    border: 1px solid transparent;
+    padding: 20px;
+    border-radius: 50%;
+    content-visibility: hidden;
+    font-size: 0px;
+}
+#chips {
+    width: 40%;
+    margin: auto;
+    border-spacing: 0px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+}
