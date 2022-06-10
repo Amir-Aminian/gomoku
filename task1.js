@@ -1,4 +1,3 @@
-
 let task1 = [1, -1, 0, -1, -1, -1, -1];
 let count = 1;
 calculate_count(...task1);
