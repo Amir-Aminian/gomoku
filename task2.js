@@ -1,7 +1,7 @@
 let table = [[3, 2, 1, 7], [9, 11, 5 ,4], [6, 0, 13, 17], [7, 21, 14, 15]];
 let arr = [];
-let x = 0;
-let y = 1;
+let x = 3;
+let y = 3;
 myfunction(...table);
 function myfunction() {
 /*checks the coordinates horizontally*/
@@ -30,7 +30,7 @@ function myfunction() {
     let c = [];
     let new_new_x = x;
     let new_new_y = y;
-    while (new_new_x < table.length && new_new_y > 0) {
+    while (new_new_x < (table.length - 1) && new_new_y > 0) {
         new_new_x = new_new_x + 1;
         new_new_y = new_new_y - 1;
     }
