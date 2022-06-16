@@ -11,8 +11,8 @@ function extract4ArraysToCalculate(table, x, y) {
 /*checks the coordinates diagonally in first direction*/
     let diagonalRow1 = [];
     let min1 = Math.min(x, y);
-    let x1 = x-min1;
-    let y1 = y-min1;
+    let x1 = x - min1;
+    let y1 = y - min1;
     while (x1 < table.length && y1 < table[x1].length) {
         diagonalRow1.push(table[x1][y1]);
         x1++;
@@ -22,14 +22,14 @@ function extract4ArraysToCalculate(table, x, y) {
 /*checks the coordinates diagonally in second direction*/
     let diagonalRow2 = [];
     let min2 = Math.min(x, y);
-    let x2 = x2 + min2;
-    let y2 = y2 - min2;
+    let x2 = x + min2;
+    let y2 = y - min2;
     while (x2 >= 0 && y2 < table[x2].length) {
-        c.push(table[x2][y2]);
-        x2 = x2 - 1;
-        y2 = y2 + 1;
+        diagonalRow2.push(table[x2][y2]);
+        x2--;
+        y2++;
     }
-    result.push(c);
+    result.push(diagonalRow2);
 /*gives the output*/
     return result;
 }
