@@ -1,17 +1,15 @@
-let task1 = [1, 1, 1, 0, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0];
-let max_count = 0;
-let count = 1;
-calculate_count(...task1);
-function calculate_count() {
-    for (let i = 0; i < (task1.length-1); i++) {
-        if (task1[i] == task1[i+1] && task1[i] != 0) {
-            count = count + 1;
-            if (count > max_count) {
-                max_count = count
+function calculateCount(array) {
+    let maxCount = 0;
+    let tempCount =1;
+    for (let i = 0; i < (array.length-1); i++) {
+        if (array[i] == array[i+1] && array[i] != 0) {
+            tempCount = tempCount + 1;
+            if (tempCount > maxCount) {
+                maxCount = tempCount;
             }
         } else {
-            count = 1;
+            tempCount = 1;
         }
     }
-    alert("count: " + max_count);
+    return maxCount;
 }
