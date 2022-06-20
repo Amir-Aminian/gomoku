@@ -1,14 +1,14 @@
-div {
+#gameboard {
     margin: auto;
     margin-top: 50px;
     width: 40%;
     position: relative;
 }
-#gameboard td {
+#background td {
     border: 1px solid black;
     padding: 20px;
 }
-#gameboard {
+#background {
     width: 40%;
     margin: auto;
     border-spacing: 0px;
