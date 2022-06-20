@@ -11,7 +11,7 @@ for (let i = 0; i < layers.length; i++) {
         row.id = i;
         for (let i = 0; i < 15; i++) {
             const column = document.createElement("td");
-            column.id = i;
+            column.id = row.id + "_" + i;
             row.appendChild(column);
         }
         table.appendChild(row);
