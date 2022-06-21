@@ -1,4 +1,4 @@
-// updates the data model
+// data model
 function dataModel() {
     let dataModel = [];
     for (let rowId = 0; rowId < 15; rowId++) {
