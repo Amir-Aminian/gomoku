@@ -1,12 +1,9 @@
-// creats the data model
+// updates the data model
 function dataModel() {
     let dataModel = [];
     for (let rowId = 0; rowId < 15; rowId++) {
-        let rowArray = [];
         for (let columnId = 0; columnId < 15; columnId++) {
-            rowArray.push(document.getElementById(rowId + "_" + columnId).innerHTML);
+            column.innerHTML = (dataModel[rowId][columnId]);
         }
-        dataModel.push(rowArray);
     }
-    return dataModel;
 }
