@@ -27,4 +27,3 @@ const createGameBoard = (size) => {
         }
     gameboard.appendChild(chips);
 }
-createGameBoard(15);
