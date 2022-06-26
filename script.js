@@ -1,7 +1,7 @@
 const BOARD_ZISE = 15;
-let dataModel = [];
 
 const createDataModel = (size) => {
+    let dataModel = [];
     for (let rowId = 0; rowId < size; rowId++) {
         let row = [];
         for (let columnId = 0; columnId < size; columnId++) {
@@ -26,6 +26,9 @@ const createGameBoard = (size) => {
         background.appendChild(row);
         }
     gameboard.appendChild(background);
+}
+
+const creatChips = (size) => {
     const chips = document.createElement("table");
     chips.id = "chips";
     for (let i = 0; i < size; i++) {
@@ -50,8 +53,10 @@ const sendDataModel = (dataModel) => {
 }
 
 const initialize = (size) => {
+    let dataModel = [];
     createDataModel(size);
     createGameBoard(size);
+    creatChips (size);
     sendDataModel(dataModel);
 }
 

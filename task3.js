@@ -13,6 +13,9 @@ const createGameBoard = (size) => {
         background.appendChild(row);
         }
     gameboard.appendChild(background);
+}
+
+const creatChips = (size) => {
     const chips = document.createElement("table");
     chips.id = "chips";
     for (let i = 0; i < size; i++) {

@@ -1,4 +1,5 @@
 const createDataModel = (size) => {
+    let dataModel = [];
     for (let rowId = 0; rowId < size; rowId++) {
         let row = [];
         for (let columnId = 0; columnId < size; columnId++) {
