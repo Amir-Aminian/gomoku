@@ -35,9 +35,31 @@ const createGameBoard = (size) => {
     gameboard.appendChild(background);
 }
 
-const tdCellClicked = (event) =>{
-    //change cell's css to show the chip with correct color
+const tdCellClicked = (event) => {
     //check if anyone wins
+    if (event.target.dataset.value == CHIP_STATE.EMPTY && whiteNext) {
+        event.target.style.backgroundColor = "white";
+        event.target.dataset.value = CHIP_STATE.WHITE
+        whiteNext = false;
+    } else if (event.target.dataset.value == CHIP_STATE.EMPTY) {
+        event.target.style.backgroundColor = "black";
+        event.target.dataset.value = CHIP_STATE.BLACK
+        whiteNext = true;
+    }
+}
+
+const tdCellPreClickedColor = (event) => {
+    if (event.target.dataset.value == CHIP_STATE.EMPTY && whiteNext) {
+        event.target.style.backgroundColor = "white";
+    } else if (event.target.dataset.value == CHIP_STATE.EMPTY) {
+        event.target.style.backgroundColor = "black";
+    }
+}
+
+const tdCellNotClicked = (event) => {
+    if (event.target.dataset.value == CHIP_STATE.EMPTY) {
+        event.target.style.backgroundColor = "transparent";
+    }
 }
 
 const creatChips = (size, dataModel) => {
@@ -45,12 +67,13 @@ const creatChips = (size, dataModel) => {
     chips.id = "chips";
     for (let i = 0; i < size; i++) {
         const row = document.createElement("tr");
-        row.id = i;
         for (let j = 0; j < size; j++) {
             const tdCell = document.createElement("td");
             tdCell.id = i + "_" + j;
             tdCell.dataset.value = dataModel[i][j];
             tdCell.addEventListener("click", tdCellClicked);
+            tdCell.addEventListener("mouseover", tdCellPreClickedColor);
+            tdCell.addEventListener("mouseout", tdCellNotClicked);
             row.appendChild(tdCell);
         }
         chips.appendChild(row);
