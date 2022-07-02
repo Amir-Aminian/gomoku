@@ -35,8 +35,8 @@ const createGameBoard = (size) => {
 }
 
 const tdCellClicked = (event) => {
-    let x = event.target.id.split("_")[0];
-    let y = event.target.id.split("_")[1];
+    let x = Number(event.target.id.split("_")[0]);
+    let y = Number(event.target.id.split("_")[1]);
     if (dataModel[x][y] == CHIP_STATE.EMPTY && whiteNext) {
         event.target.style.backgroundColor = "white";
         dataModel[x][y] = CHIP_STATE.WHITE
@@ -49,8 +49,8 @@ const tdCellClicked = (event) => {
 }
 
 const calculateWinner = (event) => {
-    let x = event.target.id.split("_")[0];
-    let y = event.target.id.split("_")[1];
+    let x = Number(event.target.id.split("_")[0]);
+    let y = Number(event.target.id.split("_")[1]);
     let result = [];
 
     result.push(dataModel[x]);
@@ -105,8 +105,8 @@ const calculateWinner = (event) => {
 }
 
 const tdCellPreClickedColor = (event) => {
-    let x = event.target.id.split("_")[0];
-    let y = event.target.id.split("_")[1];
+    let x = Number(event.target.id.split("_")[0]);
+    let y = Number(event.target.id.split("_")[1]);
     if (dataModel[x][y] == CHIP_STATE.EMPTY && whiteNext) {
         event.target.style.backgroundColor = "white";
     } else if (dataModel[x][y] == CHIP_STATE.EMPTY) {
@@ -115,8 +115,8 @@ const tdCellPreClickedColor = (event) => {
 }
 
 const tdCellNotClicked = (event) => {
-    let x = event.target.id.split("_")[0];
-    let y = event.target.id.split("_")[1];
+    let x = Number(event.target.id.split("_")[0]);
+    let y = Number(event.target.id.split("_")[1]);
     if (dataModel[x][y] == CHIP_STATE.EMPTY) {
         event.target.style.backgroundColor = "transparent";
     }
