@@ -76,7 +76,7 @@ const calculateWinner = (event) => {
     let min2 = Math.min(x, y);
     let x2 = x + min2;
     let y2 = y - min2;
-    while (x2 >= 0 && y2 < dataModel[x2].length) {
+    while (x2 > 0 && y2 < dataModel[x2].length) {
         diagonalRow2.push(dataModel[x2][y2]);
         x2--;
         y2++;
@@ -96,9 +96,9 @@ const calculateWinner = (event) => {
                 tempCount = 1;
             }
             if (maxCount == 5 && whiteNext) {
-                alert("Player One Wins")
-            } else if (maxCount == 5 && whiteNext) {
                 alert("Player Two Wins")
+            } else if (maxCount == 5) {
+                alert("Player One Wins")
             }
         }    
     }
@@ -130,7 +130,8 @@ const creatChips = (size) => {
         for (let j = 0; j < size; j++) {
             const tdCell = document.createElement("td");
             tdCell.id = i + "_" + j;
-            tdCell.addEventListener("click", tdCellClicked, calculateWinner);
+            tdCell.addEventListener("click", tdCellClicked);
+            tdCell.addEventListener("click", calculateWinner);
             tdCell.addEventListener("mouseover", tdCellPreClickedColor);
             tdCell.addEventListener("mouseout", tdCellNotClicked);
             row.appendChild(tdCell);
