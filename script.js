@@ -1,4 +1,4 @@
-const BOARD_ZISE = 15;
+const BOARD_SIZE = 15;
 const CHIP_STATE = {
 	EMPTY: 0,
 	BLACK: -1,
@@ -49,6 +49,7 @@ const tdCellClicked = (event) => {
 }
 
 const calculateWinner = (event) => {
+    let size = BOARD_SIZE - 1;
     let x = Number(event.target.id.split("_")[0]);
     let y = Number(event.target.id.split("_")[1]);
     let result = [];
@@ -73,10 +74,10 @@ const calculateWinner = (event) => {
     result.push(diagonalRow1);
 
     let diagonalRow2 = [];
-    let min2 = Math.min(x, y);
+    let min2 = Math.min(size - x, y);
     let x2 = x + min2;
     let y2 = y - min2;
-    while (x2 > 0 && y2 < dataModel[x2].length) {
+    while (x2 >= 0 && y2 < dataModel[x2].length) {
         diagonalRow2.push(dataModel[x2][y2]);
         x2--;
         y2++;
@@ -84,21 +85,22 @@ const calculateWinner = (event) => {
     result.push(diagonalRow2);
 
     let maxCount = 0;
-    let tempCount =1;
-    for (let j = 0; j < result.length-1; j++) {
-        for (let i = 0; i < result.length-1; i++) {
-            if (result[i] == result[i+1] && result[i] != 0) {
+    let tempCount = 1;
+    for (let j = 0; j < result.length; j++) {
+        let array = result[j];
+        for (let i = 0; i < array.length - 1; i++) {
+            if (array[i] == array[i+1] && array[i] != 0) {
                 tempCount = tempCount + 1;
                 if (tempCount > maxCount) {
                     maxCount = tempCount;
+                    if (maxCount == 5 && whiteNext) {
+                        alert("Player Two Wins")
+                    } else if (maxCount == 5) {
+                        alert("Player One Wins")
+                    }
                 }
             } else {
                 tempCount = 1;
-            }
-            if (maxCount == 5 && whiteNext) {
-                alert("Player Two Wins")
-            } else if (maxCount == 5) {
-                alert("Player One Wins")
             }
         }    
     }
@@ -147,4 +149,4 @@ const initialize = (size) => {
     creatChips(size);
 }
 
-initialize(BOARD_ZISE);
+initialize(BOARD_SIZE);
