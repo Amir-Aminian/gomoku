@@ -46,12 +46,11 @@ const tdCellClicked = (event) => {
         dataModel[x][y] = CHIP_STATE.BLACK
         whiteNext = true;
     }
+    calculateWinner(x, y);
 }
 
-const calculateWinner = (event) => {
+const calculateWinner = (x, y) => {
     let size = BOARD_SIZE - 1;
-    let x = Number(event.target.id.split("_")[0]);
-    let y = Number(event.target.id.split("_")[1]);
     let result = [];
 
     result.push(dataModel[x]);
@@ -133,7 +132,6 @@ const creatChips = (size) => {
             const tdCell = document.createElement("td");
             tdCell.id = i + "_" + j;
             tdCell.addEventListener("click", tdCellClicked);
-            tdCell.addEventListener("click", calculateWinner);
             tdCell.addEventListener("mouseover", tdCellPreClickedColor);
             tdCell.addEventListener("mouseout", tdCellNotClicked);
             row.appendChild(tdCell);
