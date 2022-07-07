@@ -42,14 +42,11 @@ const tdCellClicked = (event) => {
         return;
     }
     if (whiteNext) {
-        //event.target.style.backgroundColor = "white";
         dataModel[x][y] = CHIP_STATE.WHITE
     } else {
-        //event.target.style.backgroundColor = "black";
         dataModel[x][y] = CHIP_STATE.BLACK
     }
     whiteNext = !whiteNext;
-    //refreshView(x, y);
     calculateWinner(x, y);
 };
 
@@ -118,18 +115,23 @@ const calculateWinner = (x, y) => {
 };
 
 const tdCellPreClickedColor = (event) => {
-    let x = Number(event.target.id.split("_")[0]);
-    let y = Number(event.target.id.split("_")[1]);
-    if (dataModel[x][y] == CHIP_STATE.EMPTY && whiteNext) {
+    let xy = event.target.id.split("_")
+    let x = Number(xy[0]);
+    let y = Number(xy[1]);
+    if (dataModel[x][y] !== CHIP_STATE.EMPTY) {
+        return;
+    }
+    if (whiteNext) {
         event.target.style.backgroundColor = "white";
-    } else if (dataModel[x][y] == CHIP_STATE.EMPTY) {
+    } else {
         event.target.style.backgroundColor = "black";
     }
 };
 
 const tdCellNotClicked = (event) => {
-    let x = Number(event.target.id.split("_")[0]);
-    let y = Number(event.target.id.split("_")[1]);
+    let xy = event.target.id.split("_")
+    let x = Number(xy[0]);
+    let y = Number(xy[1]);
     if (dataModel[x][y] == CHIP_STATE.EMPTY) {
         event.target.style.backgroundColor = "transparent";
     }
