@@ -8,14 +8,14 @@ let whiteNext = true;
 let dataModel = [];
 
 const createDataModel = (size) => {
-    for (let rowId = 0; rowId < size; rowId++) {
+    for (let i = 0; i < size; i++) {
         let row = [];
-        for (let columnId = 0; columnId < size; columnId++) {
+        for (let j = 0; j < size; j++) {
             row.push(CHIP_STATE.EMPTY);
         }
         dataModel.push(row);
     }
-};
+}
 
 const createGameBoard = (size) => {
     const gameboard = document.createElement("div");
@@ -32,7 +32,7 @@ const createGameBoard = (size) => {
         background.appendChild(row);
         }
     gameboard.appendChild(background);
-};
+}
 
 const tdCellClicked = (event) => {
     let xy = event.target.id.split("_")
@@ -48,44 +48,91 @@ const tdCellClicked = (event) => {
     }
     whiteNext = !whiteNext;
     calculateWinner(x, y);
-};
+}
+
+const extratFirstArray = (x, y, size) => {
+    let firstArray = [];
+    let newY = y;
+    for (let i = 0; i < 4; i++) {
+        if (newY > 0) {
+            newY--;
+        }
+    }
+    for (let j = 0; j < y + 5; j++) {
+        if (newY < size) {
+            firstArray.push(dataModel[x][newY]);
+            newY++;
+        }
+    }
+    return firstArray;
+}
+
+const extractSecondArray = (x, y, size) => {
+    let secondArray = [];
+    let newX = x;
+    for (let i = 0; i < 4; i++) {
+        if (newX > 0) {
+            newX--;
+        }
+    } 
+    for (let j = 0; j < x + 5; j++) {
+        if (newX < size) {
+            secondArray.push(dataModel[newX][y]);
+            newX++;
+        }
+    }
+    return secondArray;
+}
+
+const extractThirdArray = (x, y, size) => {
+    let thirdArray = [];
+    let newX = x;
+    let newY = y;
+    for (let i = 0; i < 4; i++) {
+        if (newX > 0 && newY > 0) {
+            newX--;
+            newY--;
+        }        
+    }
+    for (let j = 0; j < x + 5; j++) {
+        if (newX < size && newY < size) {
+            thirdArray.push(dataModel[newX][newY]);
+            newX++;
+            newY++;
+        }
+    }
+    return thirdArray;
+}
+
+const extractFourthArray = (x, y, size) => {
+    let fourthArray = [];
+    let newX = x;
+    let newY = y;
+    for (let i = 0; i < 4; i++) {
+        if (newX < size - 1 && newY > 0) {
+            newX++;
+            newY--;
+        }        
+    }
+    for (let j = 0; j < y + 5; j++) {
+        if (newX >= 0 && newY < size) {
+            fourthArray.push(dataModel[newX][newY]);
+            newX--;
+            newY++;
+        }
+    }
+    return fourthArray;
+}
 
 const extract4ArraysToCalculate = (x, y) => {
-    let size = BOARD_SIZE - 1;
-    let result = [];
-
-    result.push(dataModel[x]);
-
-    let clickedColumn = [];
-    for (let i = 0; i < dataModel.length; i++) {
-        clickedColumn.push(dataModel[i][y]);
-    }
-    result.push(clickedColumn);
-
-    let diagonalRow1 = [];
-    let min1 = Math.min(x, y);
-    let x1 = x - min1;
-    let y1 = y - min1;
-    while (x1 < dataModel.length && y1 < dataModel[x1].length) {
-        diagonalRow1.push(dataModel[x1][y1]);
-        x1++;
-        y1++;
-    }
-    result.push(diagonalRow1);
-
-    let diagonalRow2 = [];
-    let min2 = Math.min(size - x, y);
-    let x2 = x + min2;
-    let y2 = y - min2;
-    while (x2 >= 0 && y2 < dataModel[x2].length) {
-        diagonalRow2.push(dataModel[x2][y2]);
-        x2--;
-        y2++;
-    }
-    result.push(diagonalRow2);
-
+    let size = BOARD_SIZE;
+    let firstArray = extratFirstArray(x, y, size);
+    let secondArray = extractSecondArray(x, y, size);
+    let thirdArray = extractThirdArray(x, y, size);
+    let fourthArray = extractFourthArray(x, y, size);
+    let result = [firstArray, secondArray, thirdArray, fourthArray];
     return result;
-};
+}
 
 const calculateMaxCount = (array) => {
     let maxCount = 0;
@@ -103,7 +150,7 @@ const calculateMaxCount = (array) => {
         }    
     }
     return maxCount;
-};
+}
 
 const calculateWinner = (x, y) => {
     let array = extract4ArraysToCalculate(x, y);
@@ -112,7 +159,7 @@ const calculateWinner = (x, y) => {
         return;
     }
     whiteNext ? alert("Black Wins") : alert("White Wins")
-};
+}
 
 const tdCellPreClickedColor = (event) => {
     let xy = event.target.id.split("_")
@@ -126,7 +173,7 @@ const tdCellPreClickedColor = (event) => {
     } else {
         event.target.style.backgroundColor = "black";
     }
-};
+}
 
 const tdCellNotClicked = (event) => {
     let xy = event.target.id.split("_")
@@ -135,7 +182,7 @@ const tdCellNotClicked = (event) => {
     if (dataModel[x][y] == CHIP_STATE.EMPTY) {
         event.target.style.backgroundColor = "transparent";
     }
-};
+}
 
 const creatChips = (size) => {
     const chips = document.createElement("table");
@@ -153,12 +200,12 @@ const creatChips = (size) => {
         chips.appendChild(row);
     }
     gameboard.appendChild(chips);
-};
+}
 
 const initialize = (size) => {
     createDataModel(size);
     createGameBoard(size);
     creatChips(size);
-};
+}
 
 initialize(BOARD_SIZE);
