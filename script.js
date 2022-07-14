@@ -159,7 +159,7 @@ const calculateWinner = (x, y) => {
         return;
     }
     whiteNext ? alert("Black Wins") : alert("White Wins")
-    location.reload()
+    Location.reload()
 }
 
 const tdCellPreClickedColor = (event) => {
