@@ -10,7 +10,6 @@
 }
 #background {
     width: 40%;
-    margin: auto;
     border-spacing: 0px;
     position: absolute;
     top: 0px;
@@ -21,12 +20,9 @@
     border: 1px solid transparent;
     padding: 20px;
     border-radius: 50%;
-    content-visibility: hidden;
-    font-size: 0px;
 }
 #chips {
     width: 40%;
-    margin: auto;
     border-spacing: 0px;
     position: absolute;
     top: -20px;
