@@ -152,14 +152,43 @@ const calculateMaxCount = (array) => {
     return maxCount;
 }
 
+let white = 0;
+let black = 0;
 const calculateWinner = (x, y) => {
     let array = extract4ArraysToCalculate(x, y);
     let maxCount = calculateMaxCount(array);
     if (maxCount < 5) {
         return;
     }
-    whiteNext ? alert("Black Wins") : alert("White Wins")
-    location.reload()
+    if (whiteNext) {
+        black ++;
+        alert("Black Wins");
+        whiteNext = true
+        dataModel = [];
+        createDataModel(BOARD_SIZE);
+        let chips = document.getElementById("chips").getElementsByTagName("td");
+        for (let i = 0; i < chips.length; i++) {
+            chips[i].style.backgroundColor = "transparent";
+        }
+        document.getElementById("playerBlack").innerHTML = "Player Black Wins: " + black;
+        clearInterval(interval);
+        document.getElementById("timer").innerHTML = "Playing Timer: 0:0:0";
+        document.getElementById("chips").addEventListener("mouseover", addEvent);
+    } else {
+        white ++;
+        alert("White Wins");
+        whiteNext = true
+        dataModel = [];
+        createDataModel(BOARD_SIZE);
+        let chips = document.getElementById("chips").getElementsByTagName("td");
+        for (let i = 0; i < chips.length; i++) {
+            chips[i].style.backgroundColor = "transparent";
+        }
+        document.getElementById("playerWhite").innerHTML = "Player White Wins: " + white;
+        clearInterval(interval);
+        document.getElementById("timer").innerHTML = "Playing Timer: 0:0:0";
+        document.getElementById("chips").addEventListener("mouseover", addEvent);
+    }
 }
 
 const tdCellPreClickedColor = (event) => {
@@ -170,9 +199,9 @@ const tdCellPreClickedColor = (event) => {
         return;
     }
     if (whiteNext) {
-        event.target.style.backgroundColor = "rgb(255,255,255,0.9)";
+        event.target.style.backgroundColor = "white";
     } else {
-        event.target.style.backgroundColor = "rgb(0,0,0,0.7)";
+        event.target.style.backgroundColor = "black";
     }
 }
 
@@ -185,9 +214,37 @@ const tdCellNotClicked = (event) => {
     }
 }
 
+const addEvent = () => {
+    document.getElementById("chips").addEventListener("click", startTimer);
+}
+
+let interval;
+const startTimer = () => {
+    let hr = 0;
+    let min = 0;
+    let sec = 0;
+    document.getElementById("chips").removeEventListener("click", startTimer)
+    document.getElementById("chips").removeEventListener("mouseover", addEvent)
+    interval = setInterval(() => {
+        if (sec < 59) {
+            sec++;
+        } else {
+            sec = 0;
+            if (min < 59) {
+                min++;
+            } else {
+                min = 0;
+                hr++;
+            }
+        }
+        document.getElementById("timer").innerHTML = "Playing Timer: " + hr + ":" + min + ":" + sec;
+    }, 1000)
+}
+
 const creatChips = (size) => {
     const chips = document.createElement("table");
     chips.id = "chips";
+    chips.addEventListener("click", startTimer)
     for (let i = 0; i < size; i++) {
         const row = document.createElement("tr");
         for (let j = 0; j < size; j++) {
@@ -203,10 +260,51 @@ const creatChips = (size) => {
     gameboard.appendChild(chips);
 }
 
+const resetPage = () => {
+    location.reload()
+}
+
+const popupInstructions = () => {
+    document.getElementById("popup").classList.toggle("show");
+}
+
+const creatButtonsAndLabels = () => {
+    const instructions = document.createElement("button");
+    instructions.type = "button";
+    instructions.id = "instructions";
+    instructions.addEventListener("click", popupInstructions);
+    instructions.innerHTML = "Instructions";
+    document.body.appendChild(instructions);
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.id = "reset";
+    reset.addEventListener("click", resetPage);
+    reset.innerHTML = "Reset"
+    document.body.appendChild(reset);
+    const playerWhite = document.createElement("p")
+    playerWhite.id = ("playerWhite");
+    playerWhite.innerHTML = "Player White Wins: 0"
+    document.body.appendChild(playerWhite);
+    const playerBlack = document.createElement("p")
+    playerBlack.id = ("playerBlack");
+    playerBlack.innerHTML = "Player Black Wins: 0"
+    document.body.appendChild(playerBlack);
+    const popup = document.createElement("p")
+    popup.id = ("popup");
+    popup.className = ("hidden")
+    popup.innerHTML = "It is a simple board game named Gomoku, also called Five in a Row. It is an abstract strategy board game, and it is traditionally played with black and white stones. Players alternate turns placing a stone of their color on an empty intersection. White plays first. The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally."
+    document.body.appendChild(popup);
+    const timer = document.createElement("p")
+    timer.id = ("timer");
+    timer.innerHTML = "Playing Timer: 0:0:0"
+    document.body.appendChild(timer);
+}
+
 const initialize = (size) => {
     createDataModel(size);
     createGameBoard(size);
     creatChips(size);
+    creatButtonsAndLabels();
 }
 
 initialize(BOARD_SIZE);
