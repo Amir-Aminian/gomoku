@@ -242,6 +242,9 @@ const startTimer = () => {
 }
 
 const creatChips = (size) => {
+    const chipsDiv = document.createElement("div");
+    chipsDiv.id = "chipsDiv";
+    document.body.appendChild(chipsDiv);
     const chips = document.createElement("table");
     chips.id = "chips";
     chips.addEventListener("click", startTimer)
@@ -257,7 +260,7 @@ const creatChips = (size) => {
         }
         chips.appendChild(row);
     }
-    gameboard.appendChild(chips);
+    chipsDiv.appendChild(chips);
 }
 
 const resetPage = () => {
@@ -269,6 +272,23 @@ const popupInstructions = () => {
 }
 
 const creatButtonsAndLabels = () => {
+    const popup = document.createElement("p")
+    popup.id = ("popup");
+    popup.className = ("hidden")
+    popup.innerHTML = "It is a simple board game named Gomoku, also called Five in a Row. It is an abstract strategy board game, and it is traditionally played with black and white stones. Players alternate turns placing a stone of their color on an empty intersection. White plays first. The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally."
+    document.body.appendChild(popup);
+    const timer = document.createElement("p")
+    timer.id = ("timer");
+    timer.innerHTML = "Playing Timer: 0:0:0"
+    document.body.appendChild(timer);
+    const playerWhite = document.createElement("p")
+    playerWhite.id = ("playerWhite");
+    playerWhite.innerHTML = "Player White Wins: 0"
+    document.body.appendChild(playerWhite);
+    const playerBlack = document.createElement("p")
+    playerBlack.id = ("playerBlack");
+    playerBlack.innerHTML = "Player Black Wins: 0"
+    document.body.appendChild(playerBlack);
     const instructions = document.createElement("button");
     instructions.type = "button";
     instructions.id = "instructions";
@@ -280,24 +300,7 @@ const creatButtonsAndLabels = () => {
     reset.id = "reset";
     reset.addEventListener("click", resetPage);
     reset.innerHTML = "Reset"
-    document.body.appendChild(reset);
-    const playerWhite = document.createElement("p")
-    playerWhite.id = ("playerWhite");
-    playerWhite.innerHTML = "Player White Wins: 0"
-    document.body.appendChild(playerWhite);
-    const playerBlack = document.createElement("p")
-    playerBlack.id = ("playerBlack");
-    playerBlack.innerHTML = "Player Black Wins: 0"
-    document.body.appendChild(playerBlack);
-    const popup = document.createElement("p")
-    popup.id = ("popup");
-    popup.className = ("hidden")
-    popup.innerHTML = "It is a simple board game named Gomoku, also called Five in a Row. It is an abstract strategy board game, and it is traditionally played with black and white stones. Players alternate turns placing a stone of their color on an empty intersection. White plays first. The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally."
-    document.body.appendChild(popup);
-    const timer = document.createElement("p")
-    timer.id = ("timer");
-    timer.innerHTML = "Playing Timer: 0:0:0"
-    document.body.appendChild(timer);
+    document.body.appendChild(reset); 
 }
 
 const initialize = (size) => {
