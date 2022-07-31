@@ -18,17 +18,20 @@ const createDataModel = (size) => {
 }
 
 const createGameBoard = (size) => {
-    const gameboard = document.createElement("table");
+    const gameboard = document.createElement("div");
     gameboard.id = "gameboard";
+    document.body.appendChild(gameboard);
+    const background = document.createElement("table");
+    background.id = "background";
     for (let i = 0; i < size - 1; i++) {
         const row = document.createElement("tr");
         for (let j = 0; j < size - 1; j++) {
             const column = document.createElement("td");
             row.appendChild(column);
         }
-        gameboard.appendChild(row);
+        background.appendChild(row);
         }
-    document.body.appendChild(gameboard);
+    gameboard.appendChild(background);
 }
 
 const tdCellClicked = (event) => {
@@ -239,6 +242,9 @@ const startTimer = () => {
 }
 
 const creatChips = (size) => {
+    const chipsDiv = document.createElement("div");
+    chipsDiv.id = "chipsDiv";
+    document.body.appendChild(chipsDiv);
     const chips = document.createElement("table");
     chips.id = "chips";
     chips.addEventListener("click", startTimer)
@@ -254,7 +260,7 @@ const creatChips = (size) => {
         }
         chips.appendChild(row);
     }
-    document.body.appendChild(chips);
+    chipsDiv.appendChild(chips);
 }
 
 const resetPage = () => {

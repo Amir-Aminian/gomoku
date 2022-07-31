@@ -2,15 +2,25 @@ body {
     background-image: url(images/background.jpg);
 }
 
-#gameboard td {
-    border: 1px solid black;
-    padding: 20px;
-}
-
 #gameboard {
     width: 40%;
     margin-left: 700px;
     margin-top: 100px;
+}
+
+#chipsDiv {
+    width: 40%;
+    margin-left: 680px;
+    margin-top: -610px;
+}
+
+#background td {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#background {
+    width: 40%;
     border-spacing: 0px;
     background-color: rgb(209, 183, 122);
 }
@@ -22,9 +32,7 @@ body {
 }
 
 #chips {
-    width: 42.7%;
-    margin-left: 680px;
-    margin-top: -610px;
+    width: 40%;
     border-spacing: 0px;
 }
 
