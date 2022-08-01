@@ -18,6 +18,9 @@ const createDataModel = (size) => {
 }
 
 const createGameBoard = (size) => {
+    const container1 = document.createElement("div");
+    container1.id = "container1";
+    document.body.appendChild(container1);
     const gameboard = document.createElement("table");
     gameboard.id = "gameboard";
     for (let i = 0; i < size - 1; i++) {
@@ -28,7 +31,7 @@ const createGameBoard = (size) => {
         }
         gameboard.appendChild(row);
         }
-    document.body.appendChild(gameboard);
+    container1.appendChild(gameboard);
 }
 
 const tdCellClicked = (event) => {
@@ -239,6 +242,9 @@ const startTimer = () => {
 }
 
 const creatChips = (size) => {
+    const container2 = document.createElement("div");
+    container2.id = "container2";
+    document.body.appendChild(container2);
     const chips = document.createElement("table");
     chips.id = "chips";
     chips.addEventListener("click", startTimer)
@@ -254,7 +260,7 @@ const creatChips = (size) => {
         }
         chips.appendChild(row);
     }
-    document.body.appendChild(chips);
+    container2.appendChild(chips);
 }
 
 const resetPage = () => {

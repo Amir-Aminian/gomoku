@@ -2,41 +2,58 @@ body {
     background-image: url(images/background.jpg);
 }
 
+#container1 {
+    width: 45%;
+    float: right;
+    margin-top: 5%;
+    margin-right: 5%;
+    position: relative;
+}
+
 #gameboard td {
     border: 1px solid black;
-    padding: 20px;
+    padding: 3%;
 }
 
 #gameboard {
-    width: 40%;
-    margin-left: 700px;
-    margin-top: 90px;
+    width: 100%;
+    position: absolute;
     border-spacing: 0px;
     background-color: rgb(209, 183, 122);
 }
 
+#container2 {
+    width: 48.3%;
+    float: right;
+    margin-top: -1.5%;
+    margin-right: 3.39%;
+    position: relative;
+    clear: right;
+}
+
 #chips td {
     border: 1px solid transparent;
-    padding: 20px;
+    padding: 2.8%;
     border-radius: 50%;
 }
 
 #chips {
-    width: 42.7%;
-    margin-left: 680px;
-    margin-top: -610px;
+    width: 100%;
+    position: absolute;
     border-spacing: 0px;
+    clear: right;
 }
 
 .hidden {
     width: 40%;
     float: left;
-    margin-left: 50px;
-    margin-top: -550px;
+    margin-top: 5%;
+    margin-left: 5%;
     text-align: justify;
     font-size: x-large;
     background-color: whitesmoke;
     visibility: hidden;
+    clear: left;
 }
 
 .show {
@@ -46,52 +63,56 @@ body {
 #timer {
     min-width: 15%;
     float: left;
-    margin-left: 300px;
-    margin-top: -320px;
+    margin-top: 0px;
+    margin-left: 20%;
     padding: 5px 10px;
     font-size: x-large;
     border-radius: 50em;
     background-color: whitesmoke;
+    clear: left;
 }
 
 #playerWhite {
     min-width: 15%;
     float: left;
-    margin-left: 300px;
-    margin-top: -270px;
+    margin-top: 0px;
+    margin-left: 20%;
     padding: 5px 10px;
     font-size: x-large;
     border-radius: 50em;
     background-color: whitesmoke;
+    clear: left;
 }
 
 #playerBlack {
     min-width: 15%;
     float: left;
-    margin-left: 300px;
-    margin-top: -230px;
+    margin-top: 0px;
+    margin-left: 20%;
     padding: 5px 10px;
     font-size: x-large;
     border-radius: 50em;
     background-color: whitesmoke;
+    clear: left;
 }
 
 #instructions {
     float: left;
-    margin-left: 300px;
-    margin-top: -100px;
+    margin-top: 5%;
+    margin-left: 20%;
     padding: 5px 10px;
     font-size: large;
     border-radius: 50em;
     background-color: rgb(125, 187, 32);
     color: white;
     cursor: pointer;
+    clear: left;
 }
 
 #reset {
     float: left;
-    margin-left: 450px;
-    margin-top: -100px;
+    margin-top: 5%;
+    margin-left: 5%;
     padding: 5px 10px;
     font-size: large;
     border-radius: 50em;
