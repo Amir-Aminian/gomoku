@@ -44,29 +44,35 @@ body {
 }
 
 #timer {
-    width: 15%;
+    min-width: 15%;
     float: left;
     margin-left: 300px;
     margin-top: -320px;
+    padding: 5px 10px;
     font-size: x-large;
+    border-radius: 50em;
     background-color: whitesmoke;
 }
 
 #playerWhite {
-    width: 15%;
+    min-width: 15%;
     float: left;
     margin-left: 300px;
     margin-top: -270px;
+    padding: 5px 10px;
     font-size: x-large;
+    border-radius: 50em;
     background-color: whitesmoke;
 }
 
 #playerBlack {
-    width: 15%;
+    min-width: 15%;
     float: left;
     margin-left: 300px;
     margin-top: -230px;
+    padding: 5px 10px;
     font-size: x-large;
+    border-radius: 50em;
     background-color: whitesmoke;
 }
 
@@ -74,12 +80,29 @@ body {
     float: left;
     margin-left: 300px;
     margin-top: -100px;
+    padding: 5px 10px;
     font-size: large;
+    border-radius: 50em;
+    background-color: rgb(125, 187, 32);
+    color: white;
+    cursor: pointer;
 }
 
 #reset {
     float: left;
     margin-left: 450px;
     margin-top: -100px;
+    padding: 5px 10px;
     font-size: large;
+    border-radius: 50em;
+    background-color: rgb(125, 187, 32);
+    color: white;
+    cursor: pointer;
+}
+
+#instructions:hover, #reset:hover {
+    background-color: rgb(95, 155, 6);
+}
+#instructions:active, #reset:active {
+    transform: translateY(2px);
 }
