@@ -10,7 +10,7 @@ body {
 #gameboard {
     width: 40%;
     margin-left: 700px;
-    margin-top: 100px;
+    margin-top: 90px;
     border-spacing: 0px;
     background-color: rgb(209, 183, 122);
 }
@@ -30,6 +30,7 @@ body {
 
 .hidden {
     width: 40%;
+    float: left;
     margin-left: 50px;
     margin-top: -550px;
     text-align: justify;
@@ -44,33 +45,41 @@ body {
 
 #timer {
     width: 15%;
+    float: left;
     margin-left: 300px;
+    margin-top: -320px;
     font-size: x-large;
     background-color: whitesmoke;
 }
 
 #playerWhite {
     width: 15%;
+    float: left;
     margin-left: 300px;
+    margin-top: -270px;
     font-size: x-large;
     background-color: whitesmoke;
 }
 
 #playerBlack {
     width: 15%;
+    float: left;
     margin-left: 300px;
+    margin-top: -230px;
     font-size: x-large;
     background-color: whitesmoke;
 }
 
 #instructions {
+    float: left;
     margin-left: 300px;
-    margin-top: 100px;
+    margin-top: -100px;
     font-size: large;
 }
 
 #reset {
-    margin-left: 50px;
-    margin-top: 100px;
+    float: left;
+    margin-left: 450px;
+    margin-top: -100px;
     font-size: large;
 }
