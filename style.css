@@ -41,7 +41,6 @@ body {
     width: 100%;
     position: absolute;
     border-spacing: 0px;
-    clear: right;
 }
 
 .hidden {
@@ -126,4 +125,117 @@ body {
 }
 #instructions:active, #reset:active {
     transform: translateY(2px);
+}
+
+@media screen and (max-width: 800px) {
+    #container1 {
+        width: 94%;
+        margin-top: 5%;
+        margin-right: 2.5%;
+        position: relative;
+    }
+    
+    #gameboard td {
+        border: 1px solid black;
+        padding: 3%;
+    }
+    
+    #gameboard {
+        width: 100%;
+        position: absolute;
+        border-spacing: 0px;
+        background-color: rgb(209, 183, 122);
+    }
+    
+    #container2 {
+        width: 100%;
+        margin-top: -2.8%;
+        margin-right: -0.55%;
+        position: relative;
+    }
+    
+    #chips td {
+        border: 1px solid transparent;
+        padding: 2.8%;
+        border-radius: 50%;
+    }
+    
+    #chips {
+        width: 100%;
+        position: absolute;
+        border-spacing: 0px;
+    }
+    
+    .hidden {
+        width: 90%;
+        margin-top: 90%;
+        margin-left: 5%;
+        text-align: justify;
+        font-size: 2.5vw;
+        background-color: whitesmoke;
+        visibility: hidden;
+    }
+    
+    .show {
+        visibility: visible;
+    }
+    
+    #timer {
+        min-width: 15%;
+        margin-top: 0px;
+        margin-left: 40%;
+        padding: 5px 10px;
+        font-size: 2.5vw;
+        border-radius: 50em;
+        background-color: whitesmoke;
+    }
+    
+    #playerWhite {
+        min-width: 15%;
+        margin-top: 0px;
+        margin-left: 40%;
+        padding: 5px 10px;
+        font-size: 2.5vw;
+        border-radius: 50em;
+        background-color: whitesmoke;
+    }
+    
+    #playerBlack {
+        min-width: 15%;
+        margin-top: 0px;
+        margin-left: 40%;
+        padding: 5px 10px;
+        font-size: 2.5vw;
+        border-radius: 50em;
+        background-color: whitesmoke;
+    }
+    
+    #instructions {
+        margin-top: 5%;
+        margin-left: 40%;
+        padding: 5px 10px;
+        font-size: 2vw;
+        border-radius: 50em;
+        background-color: rgb(125, 187, 32);
+        color: white;
+        cursor: pointer;
+    }
+    
+    #reset {
+        margin-top: 5%;
+        margin-left: 5%;
+        padding: 5px 10px;
+        font-size: 2vw;
+        border-radius: 50em;
+        background-color: rgb(125, 187, 32);
+        color: white;
+        cursor: pointer;
+    }
+    
+    #instructions:hover, #reset:hover {
+        background-color: rgb(95, 155, 6);
+    }
+    #instructions:active, #reset:active {
+        transform: translateY(2px);
+    }
 }
