@@ -172,7 +172,7 @@ const calculateWinner = (x, y) => {
         }
         document.getElementById("playerBlack").innerHTML = "Player Black Wins: " + black;
         clearInterval(interval);
-        document.getElementById("timer").innerHTML = "Playing Timer: 0:0:0";
+        document.getElementById("timer").innerHTML = "Playing Timer: 00:00:00";
         document.getElementById("chips").addEventListener("mouseover", addEvent);
     } else {
         white ++;
@@ -186,7 +186,7 @@ const calculateWinner = (x, y) => {
         }
         document.getElementById("playerWhite").innerHTML = "Player White Wins: " + white;
         clearInterval(interval);
-        document.getElementById("timer").innerHTML = "Playing Timer: 0:0:0";
+        document.getElementById("timer").innerHTML = "Playing Timer: 00:00:00";
         document.getElementById("chips").addEventListener("mouseover", addEvent);
     }
 }
@@ -220,21 +220,24 @@ const addEvent = () => {
 
 let interval;
 const startTimer = () => {
-    let hr = 0;
-    let min = 0;
-    let sec = 0;
+    let hr = "0" + 0;
+    let min = "0" + 0;
+    let sec = "0" + 0;
     document.getElementById("chips").removeEventListener("click", startTimer)
     document.getElementById("chips").removeEventListener("mouseover", addEvent)
     interval = setInterval(() => {
         if (sec < 59) {
             sec++;
+            sec = sec < 10 ? "0" + sec : sec;
         } else {
-            sec = 0;
+            sec = "0" + 0;
             if (min < 59) {
                 min++;
+                min = min < 10 ? "0" + min : min;
             } else {
-                min = 0;
+                min = "0" + 0;
                 hr++;
+                hr = hr < 10 ? "0" + hr : hr;
             }
         }
         document.getElementById("timer").innerHTML = "Playing Timer: " + hr + ":" + min + ":" + sec;
@@ -279,7 +282,7 @@ const creatButtonsAndLabels = () => {
     document.body.appendChild(popup);
     const timer = document.createElement("p")
     timer.id = ("timer");
-    timer.innerHTML = "Playing Timer: 0:0:0"
+    timer.innerHTML = "Playing Timer: 00:00:00"
     document.body.appendChild(timer);
     const playerWhite = document.createElement("p")
     playerWhite.id = ("playerWhite");
