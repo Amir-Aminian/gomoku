@@ -188,7 +188,7 @@ body {
     #timer {
         min-width: 15%;
         margin-top: 0px;
-        margin-left: 33%;
+        margin-left: 32%;
         padding: 5px 10px;
         text-align: center;
         font-size: 3vw;
@@ -199,7 +199,7 @@ body {
     #playerWhite {
         min-width: 15%;
         margin-top: 0px;
-        margin-left: 34%;
+        margin-left: 33%;
         padding: 5px 10px;
         text-align: center;
         font-size: 3vw;
@@ -210,7 +210,7 @@ body {
     #playerBlack {
         min-width: 15%;
         margin-top: 0px;
-        margin-left: 34%;
+        margin-left: 33%;
         padding: 5px 10px;
         text-align: center;
         font-size: 3vw;
@@ -220,7 +220,7 @@ body {
     
     #instructions {
         margin-top: 5%;
-        margin-left: 33%;
+        margin-left: 32%;
         padding: 5px 10px;
         font-size: 2.5vw;
         border-radius: 50em;
