@@ -10,7 +10,7 @@
     
 - ## What is next?
 
-    Currently to play the game there should be two players. I would like to implement the PC as one of the players. So the game could be played even with one player at a time.
+    Currently, to play the game there should be two players. I would like to implement the PC as one of the players. So the game could be played even with one player at a time.
     
 - ## Built with:
 
